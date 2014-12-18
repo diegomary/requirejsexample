@@ -1,60 +1,35 @@
-requirejs.config({
-    //By default load any module IDs from js/lib
-    baseUrl: 'js/lib',
-    //except, if the module ID starts with "app",
-    //load it from the js/app directory. paths
-    //config is relative to the baseUrl, and
-    //never includes a ".js" extension since
-    //the paths config could be for a directory.
+require.config({
     paths: {
-        app: '../app',
-        app1: '../app1'
-       
-    }
-,
- shim: {
-        "underscore": {
-            exports: "_"            
+        jquery:"lib/jquery",    
+        underscore : "lib/underscore",
+        sub:"app/sub",
+        sub1:"app/sub1"       
+    },
+    shim : {
+        underscore : {
+            exports : "_"
         }
     }
-
-
-
 });
 
-// Start the main app logic.
-requirejs(['jquery','underscore','app/sub','app/sub1','app1/sub2','app1/sub3'],
-function($,_,sub,sub1,sub2,sub3) {
+require(['jquery','underscore','sub',"sub1"], function($,_,sub,sub1) {
+	$(document).ready(function() {
+     $('#btn').click(function(){
+     myFunc();
+    });
+    $('#btn1').click(function()
+    {
+        myFunc1();
+    });
+    $('#btn2').click(function()
+    {
+        alert(diego);
+    });
 
-			$( document ).ready(function() {
-			$('#btn').click(function(){
-			       myFunc();
+		var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+		alert('Underscore is loaded ->' + evens);
+        alert(diego);
+        alert(maria);
+	});
 
-		     });
-		    $('#btn1').click(function()
-		    {
-		        myFunc1();
-		    });
-		    $('#btn2').click(function()
-		    {
-		        alert(diego.email);
-		    });
-
- $('#btn3').click(function()
-		    {
-		        myFunc22();
-		         alert(even);
-		    });
-
-  $('#btn4').click(function()
-		    {
-		        myFunc3();
-		    });
-
-
-
-
-
-		}); 
-			
-});
+}); 
