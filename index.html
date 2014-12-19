@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My Sample Project</title>
-      <script data-main="js/app.js" src="js/require.js"></script>
-    </head>
+ <head>
+   <title>My Sample Project</title>
+   <script data-main="js/common.js" src="js/require.js"></script>
+ </head>
     <body>
      <button id ="btn">Please press here</button>
      <button id ="btn1">Please press here</button>
-     <button id ="btn2">Please press here</button>  
-
-
-
-
-
+     <button id ="btn2">Please press here</button>
+<script type="text/javascript">	
+require(['common'], function() {
+require(['pages/home']);		
+});
+</script>
     </body>
 </html>

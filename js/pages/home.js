@@ -1,18 +1,4 @@
-require.config({
-    paths: {
-        jquery:"lib/jquery",    
-        underscore : "lib/underscore",
-        sub:"app/sub",
-        sub1:"app/sub1"       
-    },
-    shim : {
-        underscore : {
-            exports : "_"
-        }
-    }
-});
-
-require(['jquery','underscore','sub',"sub1"], function($,_,sub,sub1) {
+define(['jquery','underscore','sub',"sub1"], function($,_,sub,sub1) {
 	$(document).ready(function() {
      $('#btn').click(function(){
      myFunc();
